@@ -1,0 +1,48 @@
+CloudSim 
+	simulate data centers
+	creats multiple hosts, VMs and tasks
+
+	data center consist of many hosts, host will do VM scheduling
+
+host -  physical server
+	contains multiple VMs(manage them)
+		
+			Java work
+
+Datacenter class in cloudSim models data center
+	contains set of hosts
+
+Host class models physical server
+	has memory, storage, etc. as attributes
+
+VM class models Virtual machines 
+	instantiated by host
+
+....................sharing policies (for sharing processors with VM)....
+VMScheduler (Java class)
+if we have 1 processor and 2 VMs.
+	space shared - processor is not pre-empted till task is finished.
+		processor given to one VM and only given to other VM when first VM is done with it
+	time shared - processor switched b/w VMs
+
+.............................................
+		Java continued 
+Cloudlet models task 
+	attributes length = MI million instruction
+
+CloudletSchedulerTimeShared  tasks run concurrently
+CloudletSchedulerSpaceShared tasks run sequentially  
+
+..................how cloudSim works
+CloudSim.init
+create datacenter
+create broker
+create VMs
+create cloudlets
+startSimulation
+stopSimulation
+........................................ imp ...........
+Placement of Cloudlets in VMs (scheduling) is done by the Broker (write your own broker),
+while placement of VMs on hosts is done by the Datacenter.
+=====================
+extend broker and implement your own scheduling
